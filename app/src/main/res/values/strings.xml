@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Homework</string>
+    <string name="label1">가사 분담</string>
+    <string name="label2">통계</string>
+    <string name="label3">커뮤니티</string>
+    <string name="label4">저금통</string>
+</resources>
