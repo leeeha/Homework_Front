@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -14,6 +15,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static android.content.ContentValues.TAG;
 
@@ -106,11 +112,44 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (account == null) {
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
         } else {
-            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+            doRetrofit(account.getIdToken());
+            //findViewById(R.id.sign_in_button).setVisibility(View.GONE);
 
             Log.d("LoginActivity", "idToken = " + account.getIdToken());
             Log.d("LoginActivity", "idToken = " + account.getEmail());
             // main으로 이동
         }
+    }
+
+    private void doRetrofit(String idToken) {
+        RESTApi mRESTApi = RESTApi.retrofit.create(RESTApi.class);
+        mRESTApi.login(idToken)
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        Log.d(TAG, "LoginActivity");
+
+                        Log.d(TAG, "LoginActivity response = " + response.headers());
+                        Log.d(TAG, "LoginActivity response = " + response.body());
+                        Log.d(TAG, "LoginActivity response = " + response.message());
+                        Log.d(TAG, "LoginActivity response = " + response.toString());
+
+                        String test = response.headers().get("code");
+
+//                        if (test.equals("00")) {
+//                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                            startActivity(intent);
+//                            finish();
+//                        } else {
+//                            Toast.makeText(LoginActivity.this,"회원가입 실패" + test , Toast.LENGTH_SHORT).show();
+//                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable throwable) {
+                        Log.d("LoginActivity", throwable.getMessage());
+                    }
+                });
     }
 }
