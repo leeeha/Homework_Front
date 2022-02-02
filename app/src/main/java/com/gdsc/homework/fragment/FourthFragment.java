@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.gdsc.homework.AutoChargeFragment;
 import com.gdsc.homework.MainActivity;
+import com.gdsc.homework.PayFragment;
 import com.gdsc.homework.R;
 
 // pay
@@ -71,6 +72,8 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
             case R.id.tv_normalcharge:
                 break;
             case R.id.tv_transfer:
+                ((MainActivity)getActivity()).replaceFragment(PayFragment.newInstance("정후네 가족", "룰렛 이용료", 10000));
+                ((MainActivity)getActivity()).setVisibilityBottomNavigation(false);
                 break;
             case R.id.tv_usagehistory:
                 break;
