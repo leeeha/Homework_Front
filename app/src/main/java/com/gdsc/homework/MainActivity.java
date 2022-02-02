@@ -2,6 +2,7 @@ package com.gdsc.homework;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -26,12 +27,6 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    FragmentManager fragmentManager = getSupportFragmentManager();
-    FirstFragment firstFragment = new FirstFragment();
-    SecondFragment secondFragment = new SecondFragment();
-    ThirdFragment thirdFragment = new ThirdFragment();
-    FourthFragment fourthFragment = new FourthFragment();
-
     RecyclerView recyclerView;
     CustomAdapter adapter;
     boolean isLinearLayoutManager = true;
@@ -41,11 +36,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 바텀 네비게이션 바
-//        FragmentTransaction transaction = fragmentManager.beginTransaction();
-//        transaction.replace(R.id.flFragment, firstFragment).commitAllowingStateLoss();
-//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-//        bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+        replaceFragment(FirstFragment.newInstance());
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
 
         // 리사이클러뷰 세팅
         ArrayList<Person> family = new ArrayList<Person>() {{
@@ -64,20 +57,19 @@ public class MainActivity extends AppCompatActivity {
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-
             switch (item.getItemId()) {
                 case R.id.chores:
-                    transaction.replace(R.id.flFragment, firstFragment).commitAllowingStateLoss();
+                    replaceFragment(FirstFragment.newInstance());
                     return true;
                 case R.id.chart:
-                    transaction.replace(R.id.flFragment, secondFragment).commitAllowingStateLoss();
+                    replaceFragment(SecondFragment.newInstance());
                     return true;
                 case R.id.community:
-                    transaction.replace(R.id.flFragment, thirdFragment).commitAllowingStateLoss();
+                    replaceFragment(ThirdFragment.newInstance());
                     return true;
                 case R.id.money:
-                    transaction.replace(R.id.flFragment, fourthFragment).commitAllowingStateLoss();
+                    replaceFragment(FourthFragment.newInstance());
+                    //transaction.replace(R.id.flFragment, fourthFragment).commitAllowingStateLoss();
                     return true;
             }
             return false;
@@ -120,5 +112,11 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.flFragment, fragment).commit();
     }
 }

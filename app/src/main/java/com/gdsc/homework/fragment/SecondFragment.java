@@ -11,15 +11,20 @@ import com.gdsc.homework.R;
 
 public class SecondFragment extends Fragment {
 
-    public SecondFragment(){
-        // require a empty public constructor
+    public SecondFragment() {}
 
+    public static SecondFragment newInstance() {
+        SecondFragment fragment = new SecondFragment();
+        return fragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_second, container, false);
+
+        return view;
     }
 }

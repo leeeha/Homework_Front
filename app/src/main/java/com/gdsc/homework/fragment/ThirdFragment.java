@@ -13,14 +13,20 @@ import com.gdsc.homework.R;
 // 커뮤니티, 전문가 상담
 public class ThirdFragment extends Fragment {
 
-    public ThirdFragment() {
-        // Required empty public constructor
+    public ThirdFragment() {}
+
+    public static ThirdFragment newInstance() {
+        ThirdFragment fragment = new ThirdFragment();
+        return fragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_third, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_third, container, false);
+
+        return view;
     }
 }
