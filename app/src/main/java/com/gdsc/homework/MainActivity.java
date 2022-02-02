@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.gdsc.homework.adapter.CustomAdapter;
@@ -27,13 +28,15 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
+    private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         replaceFragment(FirstFragment.newInstance());
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
     }
 
@@ -51,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(ThirdFragment.newInstance());
                     return true;
                 case R.id.money:
-                    replaceFragment(FourthFragment.newInstance());
-                    //transaction.replace(R.id.flFragment, fourthFragment).commitAllowingStateLoss();
+                    replaceFragment(FourthFragment.newInstance(false));
                     return true;
             }
             return false;
@@ -63,5 +65,14 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.flFragment, fragment).commit();
+    }
+
+    public void setVisibilityBottomNavigation(boolean type) {
+        // todo : 조금 더 부드럽게 동작하게 하기 위해 slide animation 고려 가능
+        if (type) {
+            bottomNavigationView.setVisibility(View.VISIBLE);
+        } else {
+            bottomNavigationView.setVisibility(View.GONE);
+        }
     }
 }

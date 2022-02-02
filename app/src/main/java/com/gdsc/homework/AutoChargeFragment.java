@@ -41,7 +41,8 @@ public class AutoChargeFragment extends Fragment implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_goback:
-                ((MainActivity)getActivity()).replaceFragment(FourthFragment.newInstance());
+                ((MainActivity)getActivity()).replaceFragment(FourthFragment.newInstance(false));
+                ((MainActivity)getActivity()).setVisibilityBottomNavigation(true);
                 break;
         }
     }

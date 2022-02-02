@@ -18,11 +18,25 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
 
     private TextView tv_autocharge, tv_normalcharge, tv_transfer, tv_usagehistory;
 
+    private static final String ARG_PARAM = "param";
+    private boolean mIsLottieAnimStart;
+
     public FourthFragment() {}
 
-    public static FourthFragment newInstance() {
+    public static FourthFragment newInstance(boolean isAfterPayActivity) {
         FourthFragment fragment = new FourthFragment();
+        Bundle args = new Bundle();
+        args.putBoolean(ARG_PARAM, isAfterPayActivity);
+        fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mIsLottieAnimStart = getArguments().getBoolean(ARG_PARAM);
+        }
     }
 
     @Override
@@ -42,6 +56,8 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
         tv_transfer.setOnClickListener(this);
         tv_usagehistory.setOnClickListener(this);
 
+        // todo : mIsLottieAnimStart 에 따라 애니메이션 구동
+
         return view;
     }
 
@@ -50,6 +66,7 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
         switch(view.getId()) {
             case R.id.tv_autocharge:
                 ((MainActivity)getActivity()).replaceFragment(AutoChargeFragment.newInstance());
+                ((MainActivity)getActivity()).setVisibilityBottomNavigation(false);
                 break;
             case R.id.tv_normalcharge:
                 break;
