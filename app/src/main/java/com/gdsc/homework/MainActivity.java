@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 하단 탭
         replaceFragment(FirstFragment.newInstance());
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
@@ -73,6 +74,26 @@ public class MainActivity extends AppCompatActivity {
             bottomNavigationView.setVisibility(View.VISIBLE);
         } else {
             bottomNavigationView.setVisibility(View.GONE);
+        }
+    }
+
+    // 액션바에 설정 아이콘
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)    {
+        getMenuInflater().inflate(R.menu.app_bar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.settings:
+                // 프래그먼트로 화면 전환할 예정
+                Toast.makeText(getApplicationContext(), "설정 버튼", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

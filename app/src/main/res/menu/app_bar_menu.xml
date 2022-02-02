@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/layout"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_linear_layout"
-        android:title="레이아웃 고르기" />
     <item android:id="@+id/settings"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:icon="@drawable/ic_settings"
-        android:title="개인 정보 설정" />
+        android:title="설정" />
 </menu>
