@@ -70,8 +70,6 @@ public class TopFrag2 extends Fragment {
                     "플라스틱 생수병에 라벨 제거 꼭 하기!", ""));
             add(new FamilyChores(R.drawable.ic_launcher_background,"세탁",
                     "세제 많이 넣지마~", ""));
-            add(new FamilyChores(R.drawable.ic_launcher_background, "분리수거",
-                    "플라스틱 생수병에 라벨 제거 꼭 하기!", ""));
         }};
 
         RecyclerView familyRecyclerView = rootView.findViewById(R.id.familyList);

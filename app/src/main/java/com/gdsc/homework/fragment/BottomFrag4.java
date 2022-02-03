@@ -72,7 +72,8 @@ public class BottomFrag4 extends Fragment implements View.OnClickListener {
             case R.id.tv_normalcharge:
                 break;
             case R.id.tv_transfer:
-                ((MainActivity)getActivity()).replaceBottomTab(PayFragment.newInstance("정후네 가족", "룰렛 이용료", 10000));
+                ((MainActivity)getActivity()).replaceBottomTab(PayFragment.newInstance("정후네 가족",
+                        "룰렛 이용료", 10000));
                 ((MainActivity)getActivity()).setVisibilityBottomNavigation(false);
                 break;
             case R.id.tv_usagehistory:
