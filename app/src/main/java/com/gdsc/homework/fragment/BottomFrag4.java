@@ -15,17 +15,17 @@ import com.gdsc.homework.PayFragment;
 import com.gdsc.homework.R;
 
 // 4. 저금통
-public class FourthFragment extends Fragment implements View.OnClickListener {
+public class BottomFrag4 extends Fragment implements View.OnClickListener {
 
     private TextView tv_autocharge, tv_normalcharge, tv_transfer, tv_usagehistory;
 
     private static final String ARG_PARAM = "param";
     private boolean mIsLottieAnimStart;
 
-    public FourthFragment() {}
+    public BottomFrag4() {}
 
-    public static FourthFragment newInstance(boolean isAfterPayActivity) {
-        FourthFragment fragment = new FourthFragment();
+    public static BottomFrag4 newInstance(boolean isAfterPayActivity) {
+        BottomFrag4 fragment = new BottomFrag4();
         Bundle args = new Bundle();
         args.putBoolean(ARG_PARAM, isAfterPayActivity);
         fragment.setArguments(args);
@@ -45,7 +45,7 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_fourth, container, false);
+        View view = inflater.inflate(R.layout.fragment_bottom4, container, false);
 
         tv_autocharge = view.findViewById(R.id.tv_autocharge);
         tv_normalcharge = view.findViewById(R.id.tv_normalcharge);

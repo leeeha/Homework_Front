@@ -14,18 +14,13 @@ import androidx.fragment.app.FragmentTransaction;
 import com.gdsc.homework.R;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.Calendar;
-
-import devs.mulham.horizontalcalendar.HorizontalCalendar;
-import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
-
 // 1. 가사 분담
-public class FirstFragment extends Fragment {
+public class BottomFrag1 extends Fragment {
 
-    public FirstFragment() { }
+    public BottomFrag1() { }
 
-    public static FirstFragment newInstance() {
-        FirstFragment fragment = new FirstFragment();
+    public static BottomFrag1 newInstance() {
+        BottomFrag1 fragment = new BottomFrag1();
         return fragment;
     }
 
@@ -34,14 +29,14 @@ public class FirstFragment extends Fragment {
     @Override // 프래그먼트 레이아웃 인플레이트 시키고, 루트 뷰 리턴
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_first, container, false);
+        rootView = inflater.inflate(R.layout.fragment_bottom1, container, false);
         return rootView;
     }
 
     // View의 초기값 설정 - 바인딩, RecyclerView Adapter 설정 등
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        replaceTopTab(MyTabFragment.newInstance());
+        replaceTopTab(TopFrag1.newInstance());
         chooseTopTab();
     }
 
@@ -51,9 +46,9 @@ public class FirstFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if(tab.getPosition() == 0){
-                    replaceTopTab(MyTabFragment.newInstance());
+                    replaceTopTab(TopFrag1.newInstance());
                 }else{
-                    replaceTopTab(WholeTabFragment.newInstance());
+                    replaceTopTab(TopFrag2.newInstance());
                 }
             }
 

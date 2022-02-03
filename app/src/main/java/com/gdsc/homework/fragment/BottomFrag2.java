@@ -1,22 +1,21 @@
 package com.gdsc.homework.fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
 import com.gdsc.homework.R;
 
-// 3. 커뮤니티, 전문가 상담
-public class ThirdFragment extends Fragment {
+// 2. 통계
+public class BottomFrag2 extends Fragment {
 
-    public ThirdFragment() {}
+    public BottomFrag2() {}
 
-    public static ThirdFragment newInstance() {
-        ThirdFragment fragment = new ThirdFragment();
+    public static BottomFrag2 newInstance() {
+        BottomFrag2 fragment = new BottomFrag2();
         return fragment;
     }
 
@@ -25,7 +24,7 @@ public class ThirdFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_third, container, false);
+        View view = inflater.inflate(R.layout.fragment_bottom2, container, false);
 
         return view;
     }

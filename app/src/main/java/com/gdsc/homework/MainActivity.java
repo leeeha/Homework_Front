@@ -10,10 +10,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.gdsc.homework.fragment.FirstFragment;
-import com.gdsc.homework.fragment.FourthFragment;
-import com.gdsc.homework.fragment.SecondFragment;
-import com.gdsc.homework.fragment.ThirdFragment;
+import com.gdsc.homework.fragment.BottomFrag1;
+import com.gdsc.homework.fragment.BottomFrag4;
+import com.gdsc.homework.fragment.BottomFrag2;
+import com.gdsc.homework.fragment.BottomFrag3;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // 하단 탭
-        replaceBottomTab(FirstFragment.newInstance());
+        replaceBottomTab(BottomFrag1.newInstance());
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
     }
@@ -36,16 +36,16 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.chores:
-                    replaceBottomTab(FirstFragment.newInstance());
+                    replaceBottomTab(BottomFrag1.newInstance());
                     return true;
                 case R.id.chart:
-                    replaceBottomTab(SecondFragment.newInstance());
+                    replaceBottomTab(BottomFrag2.newInstance());
                     return true;
                 case R.id.community:
-                    replaceBottomTab(ThirdFragment.newInstance());
+                    replaceBottomTab(BottomFrag3.newInstance());
                     return true;
                 case R.id.money:
-                    replaceBottomTab(FourthFragment.newInstance(false));
+                    replaceBottomTab(BottomFrag4.newInstance(false));
                     return true;
             }
             return false;

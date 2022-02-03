@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.gdsc.homework.fragment.FourthFragment;
+import com.gdsc.homework.fragment.BottomFrag4;
 import com.gdsc.homework.model.Approve;
 import com.gdsc.homework.model.Ready;
 
@@ -149,7 +149,7 @@ public class PayFragment extends Fragment {
 //                Intent intentorder = new Intent(PayActivity.this, orderSuccessActivity.getClass());
 //                startActivity(intentorder);
 //                finish();   // 다시 돌아오지 않을 것이므로 PayActivity finish
-                ((MainActivity)getActivity()).replaceBottomTab(FourthFragment.newInstance(true));
+                ((MainActivity)getActivity()).replaceBottomTab(BottomFrag4.newInstance(true));
                 ((MainActivity)getActivity()).setVisibilityBottomNavigation(true);
 //                Intent intent = new Intent(getApplicationContext(), OrderSuccessActivity.class);
 //                intent.putExtra("store", storeName);

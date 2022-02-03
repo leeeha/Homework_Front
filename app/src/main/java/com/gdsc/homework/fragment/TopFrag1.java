@@ -25,15 +25,16 @@ import java.util.Calendar;
 import devs.mulham.horizontalcalendar.HorizontalCalendar;
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
 
-public class MyTabFragment extends Fragment {
+// 개인 페이지 탭
+public class TopFrag1 extends Fragment {
     private View rootView;
 
-    public MyTabFragment() {
+    public TopFrag1() {
         // Required empty public constructor
     }
 
-    public static MyTabFragment newInstance() {
-        MyTabFragment fragment = new MyTabFragment();
+    public static TopFrag1 newInstance() {
+        TopFrag1 fragment = new TopFrag1();
         return fragment;
     }
 
@@ -46,7 +47,7 @@ public class MyTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_my_tab, container, false);
+        rootView = inflater.inflate(R.layout.fragment_top1, container, false);
         return rootView;
     }
 
