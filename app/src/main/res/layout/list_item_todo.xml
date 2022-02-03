@@ -2,28 +2,32 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dp"
+    android:layout_width="135dp"
     android:layout_height="150dp"
     android:layout_margin="8dp"
     app:cardElevation="4dp"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="20dp">
 
     <LinearLayout
-        android:padding="10dp"
-        android:orientation="vertical"
+        android:padding="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <TextView
+            android:id="@+id/roles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            android:text="설거지"/>
+            android:text="설거지"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
         <ImageView
-            android:layout_margin="10dp"
+            android:id="@+id/icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background"/>
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_launcher_background" />
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

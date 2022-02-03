@@ -66,13 +66,13 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.tv_autocharge:
-                ((MainActivity) requireActivity()).replaceFragment(AutoChargeFragment.newInstance());
+                ((MainActivity) requireActivity()).replaceBottomTab(AutoChargeFragment.newInstance());
                 ((MainActivity) requireActivity()).setVisibilityBottomNavigation(false);
                 break;
             case R.id.tv_normalcharge:
                 break;
             case R.id.tv_transfer:
-                ((MainActivity)getActivity()).replaceFragment(PayFragment.newInstance("정후네 가족", "룰렛 이용료", 10000));
+                ((MainActivity)getActivity()).replaceBottomTab(PayFragment.newInstance("정후네 가족", "룰렛 이용료", 10000));
                 ((MainActivity)getActivity()).setVisibilityBottomNavigation(false);
                 break;
             case R.id.tv_usagehistory:

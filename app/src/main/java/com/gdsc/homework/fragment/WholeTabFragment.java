@@ -1,0 +1,112 @@
+package com.gdsc.homework.fragment;
+
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.gdsc.homework.R;
+import com.gdsc.homework.adapter.FamilyAdapter;
+import com.gdsc.homework.model.FamilyChores;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+
+import devs.mulham.horizontalcalendar.HorizontalCalendar;
+import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
+
+public class WholeTabFragment extends Fragment {
+    private View rootView;
+
+    public WholeTabFragment() {
+        // Required empty public constructor
+    }
+
+    public static WholeTabFragment newInstance() {
+        WholeTabFragment fragment = new WholeTabFragment();
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        rootView = inflater.inflate(R.layout.fragment_whole_tab, container, false);
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        showFamilyCalendar(R.id.wholeCalendarView);
+        showFamilyList();
+        // 플로팅 버튼
+    }
+
+    // list_item_family
+    private void showFamilyList() {
+        ArrayList<FamilyChores> dataSet = new ArrayList<FamilyChores>() {{
+            add(new FamilyChores(R.drawable.ic_launcher_background,"세탁", "월 화 수 (오후 10시)"));
+            add(new FamilyChores(R.drawable.ic_launcher_background, "설거지", "목 금 토 (수시로)"));
+            add(new FamilyChores(R.drawable.ic_launcher_background,"화장실 청소", "일 (오후 2시)"));
+        }};
+
+        RecyclerView familyRecyclerView = rootView.findViewById(R.id.familyList);
+
+        // 레이아웃 매니저, 어댑터 설정
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        familyRecyclerView.setLayoutManager(layoutManager);
+        FamilyAdapter adapter = new FamilyAdapter(dataSet);
+        familyRecyclerView.setAdapter(adapter);
+
+        // 구분선 추가
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(familyRecyclerView.getContext(),
+                layoutManager.getOrientation());
+        familyRecyclerView.addItemDecoration(dividerItemDecoration);
+    }
+
+    // 공통: 주간 캘린더
+    public void showFamilyCalendar(int viewId) {
+        /* starts before 1 month from now */
+        Calendar startDate = Calendar.getInstance();
+        startDate.add(Calendar.MONTH, -1);
+
+        /* ends after 1 month from now */
+        Calendar endDate = Calendar.getInstance();
+        endDate.add(Calendar.MONTH, 1);
+        // setting up our horizontal calendar view and passing id our calendar view to it.
+
+        HorizontalCalendar horizontalCalendar = new HorizontalCalendar.Builder(requireActivity(), viewId)
+                // add a range as start date and end date to our calendar.
+                .range(startDate, endDate)
+                // provide a number of dates which will be visible on the screen at a time.
+                .datesNumberOnScreen(7)
+                .configure()
+                .showTopText(false)
+                .end()
+                // at last, call a build method to build our horizontal recycler view.
+                .build();
+
+        // 선택된 날짜에 따라 다른 리스트 보여주기
+        horizontalCalendar.setCalendarListener(new HorizontalCalendarListener() {
+            @Override
+            public void onDateSelected(Calendar date, int position) {
+                // 요일에 따라 다른 리스트 보여주기
+
+            }
+        });
+    }
+}

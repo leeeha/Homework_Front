@@ -5,26 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.gdsc.homework.adapter.CustomAdapter;
 import com.gdsc.homework.fragment.FirstFragment;
 import com.gdsc.homework.fragment.FourthFragment;
 import com.gdsc.homework.fragment.SecondFragment;
 import com.gdsc.homework.fragment.ThirdFragment;
-import com.gdsc.homework.model.Person;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // 하단 탭
-        replaceFragment(FirstFragment.newInstance());
+        replaceBottomTab(FirstFragment.newInstance());
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
     }
@@ -46,26 +36,27 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.chores:
-                    replaceFragment(FirstFragment.newInstance());
+                    replaceBottomTab(FirstFragment.newInstance());
                     return true;
                 case R.id.chart:
-                    replaceFragment(SecondFragment.newInstance());
+                    replaceBottomTab(SecondFragment.newInstance());
                     return true;
                 case R.id.community:
-                    replaceFragment(ThirdFragment.newInstance());
+                    replaceBottomTab(ThirdFragment.newInstance());
                     return true;
                 case R.id.money:
-                    replaceFragment(FourthFragment.newInstance(false));
+                    replaceBottomTab(FourthFragment.newInstance(false));
                     return true;
             }
             return false;
         }
     }
 
-    public void replaceFragment(Fragment fragment) {
+    // 하단 탭 전환
+    public void replaceBottomTab(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frameLayout, fragment).commit();
+        fragmentTransaction.replace(R.id.bottom_nav_container, fragment).commit();
     }
 
     public void setVisibilityBottomNavigation(boolean type) {
