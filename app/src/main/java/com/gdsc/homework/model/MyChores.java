@@ -1,29 +1,25 @@
 package com.gdsc.homework.model;
 
-import java.util.ArrayList;
-
 public class MyChores {
-    String roles;
-    String date;
+    String role;
+    String memo;
+    String time;
 
-    public MyChores(String roles, String date) {
-        this.roles = roles;
-        this.date = date;
+    public MyChores(String role, String memo, String time) {
+        this.role = role;
+        this.memo = memo;
+        this.time = time;
     }
 
-    public String getRoles() {
-        return roles;
+    public String getRole() {
+        return role;
     }
 
-    public void setRoles(String roles) {
-        this.roles = roles;
+    public String getMemo() {
+        return memo;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
+    public String getTime() {
+        return time;
     }
 }

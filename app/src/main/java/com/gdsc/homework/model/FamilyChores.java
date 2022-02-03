@@ -2,36 +2,30 @@ package com.gdsc.homework.model;
 
 public class FamilyChores {
     int imageResource;
-    String roles;
-    String date;
+    String role;
+    String memo;
+    String time;
 
-    public FamilyChores(int imageSource, String roles, String date) {
-        this.imageResource = imageSource;
-        this.roles = roles;
-        this.date = date;
+    public FamilyChores(int imageResource, String role, String memo, String time) {
+        this.imageResource = imageResource;
+        this.role = role;
+        this.memo = memo;
+        this.time = time;
     }
 
     public int getImageResource() {
         return imageResource;
     }
 
-    public void setImageResource(int imageResource) {
-        this.imageResource = imageResource;
+    public String getRole() {
+        return role;
     }
 
-    public String getRoles() {
-        return roles;
+    public String getMemo() {
+        return memo;
     }
 
-    public void setRoles(String roles) {
-        this.roles = roles;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
+    public String getTime() {
+        return time;
     }
 }

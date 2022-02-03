@@ -24,16 +24,16 @@ public class FamilyAdapter extends RecyclerView.Adapter<FamilyAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView tvProfile;
-        TextView tvRoles;
-        TextView tvDate;
+        TextView tvRole, tvMemo, tvTime;
 
         // 뷰홀더는 리스트의 한 아이템 뷰를 나타내며 필요에 따라 재사용됨.
         ViewHolder(View itemView){
             super(itemView);
 
             tvProfile = itemView.findViewById(R.id.profile);
-            tvRoles = itemView.findViewById(R.id.roles);
-            tvDate = itemView.findViewById(R.id.date);
+            tvRole = itemView.findViewById(R.id.role);
+            tvMemo = itemView.findViewById(R.id.memo);
+            tvTime = itemView.findViewById(R.id.time);
         }
     }
 
@@ -50,8 +50,9 @@ public class FamilyAdapter extends RecyclerView.Adapter<FamilyAdapter.ViewHolder
     public void onBindViewHolder(@NonNull FamilyAdapter.ViewHolder holder, int position) {
         FamilyChores item = localDataSet.get(position);
         holder.tvProfile.setImageResource(item.getImageResource());
-        holder.tvRoles.setText(item.getRoles());
-        holder.tvDate.setText(item.getDate());
+        holder.tvRole.setText(item.getRole());
+        holder.tvMemo.setText(item.getMemo());
+        holder.tvTime.setText(item.getTime());
     }
 
     @Override

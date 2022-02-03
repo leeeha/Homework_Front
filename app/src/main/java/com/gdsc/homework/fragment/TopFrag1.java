@@ -75,9 +75,12 @@ public class TopFrag1 extends Fragment {
     // list_item_mine
     private void showMyList() {
         ArrayList<MyChores> dataSet = new ArrayList<MyChores>() {{
-            add(new MyChores("세탁", "월 화 수 (오후 10시)"));
-            add(new MyChores("설거지", "목 금 토 (수시로)"));
-            add(new MyChores("화장실 청소", "일 (오후 2시)"));
+            add(new MyChores("세탁", "세제 많이 넣지마~", ""));
+            add(new MyChores("분리수거", "플라스틱 생수병에 라벨 제거 꼭 하기!", ""));
+            add(new MyChores("세탁", "세제 많이 넣지마~", ""));
+            add(new MyChores("분리수거", "플라스틱 생수병에 라벨 제거 꼭 하기!", ""));
+            add(new MyChores("세탁", "세제 많이 넣지마~", ""));
+            add(new MyChores("분리수거", "플라스틱 생수병에 라벨 제거 꼭 하기!", ""));
         }};
 
         RecyclerView myRecyclerView = rootView.findViewById(R.id.myList);

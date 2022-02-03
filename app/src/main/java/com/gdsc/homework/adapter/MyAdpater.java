@@ -22,13 +22,13 @@ public class MyAdpater extends RecyclerView.Adapter<MyAdpater.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvRoles;
-        TextView tvDate;
+        TextView tvRole, tvMemo, tvTime;
 
         ViewHolder(View itemView){
             super(itemView);
-            tvRoles = itemView.findViewById(R.id.roles);
-            tvDate = itemView.findViewById(R.id.date);
+            tvRole = itemView.findViewById(R.id.role);
+            tvMemo = itemView.findViewById(R.id.memo);
+            tvTime = itemView.findViewById(R.id.time);
         }
     }
 
@@ -44,8 +44,9 @@ public class MyAdpater extends RecyclerView.Adapter<MyAdpater.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MyChores item = localDataSet.get(position);
-        holder.tvRoles.setText(item.getRoles());
-        holder.tvDate.setText(item.getDate());
+        holder.tvRole.setText(item.getRole());
+        holder.tvMemo.setText(item.getMemo());
+        holder.tvTime.setText(item.getTime());
     }
 
     @Override
