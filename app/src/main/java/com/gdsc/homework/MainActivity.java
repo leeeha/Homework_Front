@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.flFragment, fragment).commit();
+        fragmentTransaction.replace(R.id.frameLayout, fragment).commit();
     }
 
     public void setVisibilityBottomNavigation(boolean type) {
