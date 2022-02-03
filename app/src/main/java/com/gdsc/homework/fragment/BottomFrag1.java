@@ -1,9 +1,12 @@
 package com.gdsc.homework.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,7 +14,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.gdsc.homework.EditActivity;
 import com.gdsc.homework.R;
+import com.gdsc.homework.SettingsActivity;
 import com.google.android.material.tabs.TabLayout;
 
 // 1. 가사 분담
@@ -38,6 +43,19 @@ public class BottomFrag1 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         replaceTopTab(TopFrag1.newInstance());
         chooseTopTab();
+
+        ImageButton btnAdd = rootView.findViewById(R.id.btn_add);
+        btnAdd.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getContext(), EditActivity.class);
+            startActivity(intent);
+        });
+
+        ImageButton btnSettings = rootView.findViewById(R.id.btn_settings);
+        btnSettings.setOnClickListener(view2 -> {
+            Intent intent = new Intent(getContext(), SettingsActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void chooseTopTab() {
