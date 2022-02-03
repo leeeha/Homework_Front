@@ -9,7 +9,8 @@
     app:cardCornerRadius="4dp">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:padding="10dp"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -22,19 +23,11 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
         <TextView
-            android:id="@+id/nickName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="둘째 딸"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
-
-        <TextView
             android:id="@+id/workList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="가사분담 리스트"
+            android:text="자신이 맡은 집안일, 일정"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
 
     </LinearLayout>

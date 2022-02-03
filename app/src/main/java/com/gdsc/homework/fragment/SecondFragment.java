@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 
 import com.gdsc.homework.R;
 
+// 2. 통계
 public class SecondFragment extends Fragment {
 
     public SecondFragment() {}

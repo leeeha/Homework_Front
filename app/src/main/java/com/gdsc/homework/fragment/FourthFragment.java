@@ -13,7 +13,7 @@ import com.gdsc.homework.AutoChargeFragment;
 import com.gdsc.homework.MainActivity;
 import com.gdsc.homework.R;
 
-// pay
+// 4. 저금통
 public class FourthFragment extends Fragment implements View.OnClickListener {
 
     private TextView tv_autocharge, tv_normalcharge, tv_transfer, tv_usagehistory;
@@ -65,8 +65,8 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.tv_autocharge:
-                ((MainActivity)getActivity()).replaceFragment(AutoChargeFragment.newInstance());
-                ((MainActivity)getActivity()).setVisibilityBottomNavigation(false);
+                ((MainActivity) requireActivity()).replaceFragment(AutoChargeFragment.newInstance());
+                ((MainActivity) requireActivity()).setVisibilityBottomNavigation(false);
                 break;
             case R.id.tv_normalcharge:
                 break;

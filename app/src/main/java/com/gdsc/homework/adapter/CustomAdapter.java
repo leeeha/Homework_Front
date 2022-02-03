@@ -23,6 +23,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         TextView tvNickName;
         TextView tvWorkList;
 
+        // 뷰홀더는 리스트의 한 아이템 뷰를 나타내며 필요에 따라 재사용됨.
         ViewHolder(View itemView){
             super(itemView);
 
@@ -37,20 +38,20 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
     @NonNull
-    @Override // 아이템뷰 레이아웃을 인플레이트 시키고, 그 아이템뷰를 저장하는 뷰홀더 객체 생성
+    @Override // 재사용할 수 있는 뷰홀더가 없을 때, 새로운 뷰홀더 객체 생성
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.list_item, parent, false);
+        View view = inflater.inflate(R.layout.list_item_family, parent, false);
         return new ViewHolder(view);
     }
 
-    @Override // 뷰홀더의 아이템뷰에 있는 모든 뷰에 대해 바인딩 (데이터 표시)
+    @Override // 뷰홀더의 아이템뷰에 있는 모든 뷰의 내용 변경 (바인딩)
     public void onBindViewHolder(@NonNull CustomAdapter.ViewHolder holder, int position) {
         Person person = localDataSet.get(position);
         holder.tvName.setText(person.getName());
         holder.tvNickName.setText(person.getNickName());
-        //holder.tvWorkList.setText(person.getWorkList()); // 임시 방편으로 캐스팅
+        //holder.tvWorkList.setText(person.getWorkList());
     }
 
     @Override

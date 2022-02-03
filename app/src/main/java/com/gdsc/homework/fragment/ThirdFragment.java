@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.gdsc.homework.R;
 
-// 커뮤니티, 전문가 상담
+// 3. 커뮤니티, 전문가 상담
 public class ThirdFragment extends Fragment {
 
     public ThirdFragment() {}
