@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.gdsc.homework.model.BasicResponse;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -123,12 +124,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void doRetrofit(String idToken) {
         RESTApi mRESTApi = RESTApi.retrofit.create(RESTApi.class);
-        mRESTApi.login(idToken)
-                .enqueue(new Callback<ResponseBody>() {
+        mRESTApi.googleLogin(idToken)
+                .enqueue(new Callback<BasicResponse>() {
                     @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        Log.d(TAG, "LoginActivity");
+                    public void onResponse(Call<BasicResponse> call, Response<BasicResponse> response) {
 
+                        if (response.body().getStatus() == 200) {
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
+                        }
+                        Log.d(TAG, "LoginActivity");
                         Log.d(TAG, "LoginActivity response = " + response.headers());
                         Log.d(TAG, "LoginActivity response = " + response.body());
                         Log.d(TAG, "LoginActivity response = " + response.message());
@@ -147,7 +154,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
 
                     @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable throwable) {
+                    public void onFailure(Call<BasicResponse> call, Throwable throwable) {
                         Log.d("LoginActivity", throwable.getMessage());
                     }
                 });
