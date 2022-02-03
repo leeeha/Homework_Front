@@ -20,7 +20,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
-        TextView tvNickName;
         TextView tvWorkList;
 
         // 뷰홀더는 리스트의 한 아이템 뷰를 나타내며 필요에 따라 재사용됨.
@@ -28,7 +27,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             super(itemView);
 
             tvName = itemView.findViewById(R.id.name);
-            tvNickName = itemView.findViewById(R.id.nickName);
             tvWorkList = itemView.findViewById(R.id.workList);
         }
     }
@@ -50,7 +48,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public void onBindViewHolder(@NonNull CustomAdapter.ViewHolder holder, int position) {
         Person person = localDataSet.get(position);
         holder.tvName.setText(person.getName());
-        holder.tvNickName.setText(person.getNickName());
         //holder.tvWorkList.setText(person.getWorkList());
     }
 

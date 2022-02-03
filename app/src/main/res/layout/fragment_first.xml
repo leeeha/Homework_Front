@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,67 +10,146 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/myWorkTab"
+            android:id="@+id/myTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="개인" />
-
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/wholeWorkTab"
+            android:id="@+id/wholeTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="전체" />
     </com.google.android.material.tabs.TabLayout>
 
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="오늘 할일"
-        android:layout_margin="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_margin="16dp"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="8dp">
-
-        <LinearLayout
-            android:padding="10dp"
-            android:orientation="vertical"
+        <!-- 개인 페이지 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/myTabLayout"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-                android:layout_margin="8dp"
+                android:id="@+id/title1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="오늘 할일"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:text="설거지"/>
-            <ImageView
-                android:layout_margin="10dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- list_item_chores.xml 파일의 카드뷰를 하나의 아이템으로 설정 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/todayList"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/title2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_background"/>
-        </LinearLayout>
+                android:layout_margin="16dp"
+                android:text="주간 캘린더"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/todayList" />
 
-    </com.google.android.material.card.MaterialCardView>
+            <devs.mulham.horizontalcalendar.HorizontalCalendarView
+                android:id="@+id/myCalendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title2"
+                app:selectorColor="@color/black"
+                app:textColorNormal="@color/gray"
+                app:textColorSelected="@color/black" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/myList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_goneMarginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myCalendarView"
+                android:layout_marginVertical="10dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="주간 캘린더"
-        android:layout_margin="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textStyle="bold" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/my_btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_btn_add"
+                android:backgroundTint="@color/white"
+                android:layout_margin="16dp" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- 전체 페이지  -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/wholeTabLayout"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="주간 캘린더"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <devs.mulham.horizontalcalendar.HorizontalCalendarView
+                android:id="@+id/wholeCalendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView"
+                app:selectorColor="@color/black"
+                app:textColorNormal="@color/gray"
+                app:textColorSelected="@color/black" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/wholeList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wholeCalendarView"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/whole_btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_btn_add"
+                android:backgroundTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
 
 </LinearLayout>
