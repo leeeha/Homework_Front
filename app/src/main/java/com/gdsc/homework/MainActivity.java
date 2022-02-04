@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -19,11 +21,23 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
+    private RESTApi mRESTApi;
+    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        preferences = getSharedPreferences("data", MODE_PRIVATE);
+        editor= preferences.edit();
+        mRESTApi = RESTApi.retrofit.create(RESTApi.class);
+        token = preferences.getString("token","");
+
+        String roomcode = preferences.getString("roomCode","");
+        Log.d("MainActivity_sequence", "MainActivity_sequence" + roomcode);
 
         // 하단 탭
         replaceBottomTab(BottomFrag1.newInstance());
