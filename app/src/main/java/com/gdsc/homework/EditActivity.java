@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,12 +14,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class EditActivity extends AppCompatActivity {
+import com.gdsc.homework.model.BasicResponse;
+import com.gdsc.homework.model.Request_addDeposit;
+import com.gdsc.homework.model.Request_createHousework;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class EditActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private String cate, name, day;
+    private Button btn_addhomework;
+
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
+    private RESTApi mRESTApi;
+    private String token;
+
+    private Request_createHousework request_createHousework;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +55,17 @@ public class EditActivity extends AppCompatActivity {
         int[] spinId = { R.id.spinner_category, R.id.spinner_person, R.id.spinner_day };
         int[] arrayResId = { R.array.categories, R.array.people, R.array.week };
         int[] layoutId = { R.layout.spinner_single_item,
-                R.layout.spinner_multi_item, R.layout.spinner_multi_item};
+                R.layout.spinner_single_item, R.layout.spinner_single_item};
+
+
+        preferences = getSharedPreferences("data", MODE_PRIVATE);
+        editor= preferences.edit();
+        mRESTApi = RESTApi.retrofit.create(RESTApi.class);
+        token = preferences.getString("token","");
+        request_createHousework = new Request_createHousework();
+
+        btn_addhomework = findViewById(R.id.btn_addhomework);
+        btn_addhomework.setOnClickListener(this);
 
         Spinner[] spinners = new Spinner[3];
 
@@ -43,50 +77,33 @@ public class EditActivity extends AppCompatActivity {
         spinners[0].setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                String text = spinners[0].getSelectedItem().toString();
-                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
-                // todo: 서버에 보내기
+                cate = spinners[0].getSelectedItem().toString();
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parent) { }
         });
 
         // 담당자 스피너
         spinners[1].setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @RequiresApi(api = Build.VERSION_CODES.P)
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                // 체크 표시된 모든 아이템들의 텍스트를 가져와서
-                String text = spinners[1].getSelectedItem().toString();
-                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
-
-                // todo: 서버에 보내기
-
+                name = spinners[0].getSelectedItem().toString();
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parent) { }
         });
 
         // 요일 스피너
         spinners[2].setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                String text = spinners[2].getSelectedItem().toString();
-                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
-
-                // todo: 서버에 보내기
+                day = spinners[2].getSelectedItem().toString();
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parent) { }
         });
     }
 
@@ -156,5 +173,50 @@ public class EditActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
         return spinner;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_addhomework:
+                addDeposit();
+
+                break;
+        }
+    }
+
+    private void addDeposit() {
+
+        List<Long> a = new ArrayList<>();
+        a.add(Long.parseLong("3"));
+        List<String> b = new ArrayList<>();
+        b.add(day);
+
+        request_createHousework.setToken(token);
+        request_createHousework.setName(name);
+        request_createHousework.setUserId(a);
+        request_createHousework.setDay(b);
+        request_createHousework.setStartTime("09:00");
+        request_createHousework.setFinishTime("10:00");
+        request_createHousework.setRepeat(true);
+        request_createHousework.setPenalty(1000);
+        request_createHousework.setMemo("오전에 다 할 것");
+
+        mRESTApi.createHousework(request_createHousework).enqueue(new Callback<BasicResponse>() {
+            @Override
+            public void onResponse(Call<BasicResponse> call, Response<BasicResponse> response) {
+                if(response.isSuccessful()) {
+                    if(response.body().getStatus() == 200) {
+                        Intent intent = new Intent(EditActivity.this, MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BasicResponse> call, Throwable throwable) { }
+        });
     }
 }

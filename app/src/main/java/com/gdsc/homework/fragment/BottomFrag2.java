@@ -46,40 +46,6 @@ public class BottomFrag2 extends Fragment {
         mViewPager.setAdapter(adapter);
         mTabs.setupWithViewPager(mViewPager);
 
-        mTabs.post(new Runnable() {
-            @Override
-            public void run() {
-                indicatorWidth = mTabs.getWidth() / 2;
-
-                //Assign new width
-                FrameLayout.LayoutParams indicatorParams = (FrameLayout.LayoutParams) mIndicator.getLayoutParams();
-                indicatorParams.width = indicatorWidth;
-                mIndicator.setLayoutParams(indicatorParams);
-            }
-        });
-
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)mIndicator.getLayoutParams();
-
-                //Multiply positionOffset with indicatorWidth to get translation
-                float translationOffset =  (positionOffset+position) * indicatorWidth ;
-                params.leftMargin = (int) translationOffset;
-                mIndicator.setLayoutParams(params);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
         return view;
     }
 }

@@ -238,6 +238,7 @@ public class RouletteFragment extends Fragment {
             int centerX = (rect.left + rect.right) / 2;
             int centerY = (rect.top + rect.bottom) / 2;
             int radius = (rect.right - rect.left) / 2;
+            radius -= 10;
 
             int temp = 0;
 

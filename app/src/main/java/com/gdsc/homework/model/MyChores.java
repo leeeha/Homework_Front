@@ -5,6 +5,9 @@ public class MyChores {
     String memo;
     String time;
 
+    public MyChores() {
+    }
+
     public MyChores(String role, String memo, String time) {
         this.role = role;
         this.memo = memo;
@@ -21,5 +24,17 @@ public class MyChores {
 
     public String getTime() {
         return time;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

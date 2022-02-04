@@ -8,10 +8,12 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import com.gdsc.homework.model.BasicResponse;
 import com.gdsc.homework.model.Request_addDeposit;
+import com.gdsc.homework.model.Request_createHousework;
 import com.gdsc.homework.model.Request_getDeposit;
 import com.gdsc.homework.model.Request_participateRoom;
 import com.gdsc.homework.model.Response_checkRoom;
 import com.gdsc.homework.model.Response_createRoom;
+import com.gdsc.homework.model.Response_getMyHousework;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -48,6 +50,15 @@ public interface RESTApi {
     @POST("api/bank/deposit/add")
     Call<BasicResponse> addDeposit(
             @Body Request_addDeposit request_addDeposit);
+
+    // housework
+    @POST("api/housework/my")
+    Call<Response_getMyHousework> getMyHousework(
+            @Body String token);
+
+    @POST("api/housework/create")
+    Call<BasicResponse> createHousework(
+            @Body Request_createHousework request_createHousework);
 
 
     Gson gson = new GsonBuilder().setLenient().create();
