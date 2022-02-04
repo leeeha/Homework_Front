@@ -34,7 +34,7 @@
             app:layout_constraintTop_toBottomOf="@+id/title1" />
 
         <LinearLayout
-            android:id="@+id/btn_roulette"
+            android:id="@+id/ll_roulette"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -44,8 +44,7 @@
             app:layout_constraintTop_toBottomOf="@+id/todoList"
             android:elevation="3dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cardCornerRadius="10dp">
+            app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
                 android:layout_width="70dp"
