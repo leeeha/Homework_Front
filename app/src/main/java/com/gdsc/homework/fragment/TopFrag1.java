@@ -13,7 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.gdsc.homework.AutoChargeFragment;
+import com.gdsc.homework.MainActivity;
 import com.gdsc.homework.R;
 import com.gdsc.homework.RecyclerItemTouchHelper;
 import com.gdsc.homework.adapter.MyAdpater;
@@ -28,7 +31,9 @@ import devs.mulham.horizontalcalendar.HorizontalCalendar;
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
 
 // 개인 페이지 탭
-public class TopFrag1 extends Fragment {
+public class TopFrag1 extends Fragment implements View.OnClickListener {
+
+    private LinearLayout ll_roulette;
     private View rootView;
 
     public TopFrag1() {
@@ -50,6 +55,10 @@ public class TopFrag1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_top1, container, false);
+
+        ll_roulette = rootView.findViewById(R.id.ll_roulette);
+        ll_roulette.setOnClickListener(this);
+
         return rootView;
     }
 
@@ -132,5 +141,15 @@ public class TopFrag1 extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()) {
+            case R.id.ll_roulette:
+                ((MainActivity) requireActivity()).replaceBottomTab(RouletteFragment.newInstance());
+                ((MainActivity) requireActivity()).setVisibilityBottomNavigation(false);
+                break;
+        }
     }
 }

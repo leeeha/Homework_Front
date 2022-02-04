@@ -4,13 +4,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.TableLayout;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.gdsc.homework.R;
+import com.gdsc.homework.adapter.TabFragmentAdapter;
+import com.google.android.material.tabs.TabLayout;
 
 // 2. 통계
 public class BottomFrag2 extends Fragment {
+    
+    private TabLayout mTabs;
+    private View mIndicator;
+    private ViewPager mViewPager;
+    private int indicatorWidth;
 
     public BottomFrag2() {}
 
@@ -25,6 +35,50 @@ public class BottomFrag2 extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_bottom2, container, false);
+
+        mTabs = view.findViewById(R.id.tab);
+        mIndicator = view.findViewById(R.id.indicator);
+        mViewPager = view.findViewById(R.id.viewPager);
+
+        TabFragmentAdapter adapter = new TabFragmentAdapter(getFragmentManager());
+        adapter.addFragment(BottomFragment2_weekly.newInstance(), "주간");
+        adapter.addFragment(BottomFragment2_monthly.newInstance(), "월간");
+        mViewPager.setAdapter(adapter);
+        mTabs.setupWithViewPager(mViewPager);
+
+        mTabs.post(new Runnable() {
+            @Override
+            public void run() {
+                indicatorWidth = mTabs.getWidth() / 2;
+
+                //Assign new width
+                FrameLayout.LayoutParams indicatorParams = (FrameLayout.LayoutParams) mIndicator.getLayoutParams();
+                indicatorParams.width = indicatorWidth;
+                mIndicator.setLayoutParams(indicatorParams);
+            }
+        });
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)mIndicator.getLayoutParams();
+
+                //Multiply positionOffset with indicatorWidth to get translation
+                float translationOffset =  (positionOffset+position) * indicatorWidth ;
+                params.leftMargin = (int) translationOffset;
+                mIndicator.setLayoutParams(params);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         return view;
     }
