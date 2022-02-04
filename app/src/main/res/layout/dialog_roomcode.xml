@@ -1,50 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="12dp"
+    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/et_roomcode"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_margin="20dp"
-        android:orientation="vertical">
+        android:layout_height="60dp"
+        android:backgroundTint="@color/orange"
+        android:hint="참여 코드"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="참여 코드를 입력하세요"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:gravity="top|center"/>
+    <Button
+        android:id="@+id/btn_okay"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:text="참여하기"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_roomcode" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12dp"
-            android:hint="참여코드"
-            android:id="@+id/et_roomcode"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_okay"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:backgroundTint="@null"
-                android:text="참여하기"
-                android:textColor="@color/white"/>
-        </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-    </LinearLayout>
-
-
-</androidx.cardview.widget.CardView>

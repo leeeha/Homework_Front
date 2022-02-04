@@ -1,7 +1,6 @@
 package com.gdsc.homework;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.graphics.drawable.ColorDrawable;
@@ -13,7 +12,6 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gdsc.homework.adapter.FamilyAdapter;
 import com.gdsc.homework.adapter.MyAdpater;
 
 // 수정, 완료 버튼은 개인 탭에만 있으면 되고
@@ -21,10 +19,6 @@ import com.gdsc.homework.adapter.MyAdpater;
 // 아이템 수정, 완료는 개인 탭에서만 가능해!!!
 public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
     MyAdpater adapter;
-
-    public RecyclerItemTouchHelper(int dragDirs, int swipeDirs) {
-        super(dragDirs, swipeDirs);
-    }
 
     public RecyclerItemTouchHelper(MyAdpater adapter){
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
@@ -83,7 +77,6 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
             background = new ColorDrawable(ContextCompat.getColor(adapter.getContext(), R.color.orange));
         }
 
-        assert icon != null;
         int iconMargin = (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
         int iconTop = itemView.getTop() + (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
         int iconButton = iconTop + icon.getIntrinsicHeight();

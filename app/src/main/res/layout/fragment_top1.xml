@@ -22,7 +22,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- list_item_chores.xml 파일의 카드뷰를 하나의 아이템으로 설정 -->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/todoList"
             android:layout_width="match_parent"
@@ -85,7 +84,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_roulette" />
+            app:layout_constraintTop_toBottomOf="@+id/ll_roulette" />
 
         <LinearLayout
             android:id="@+id/calendarLayout"

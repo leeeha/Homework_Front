@@ -14,11 +14,14 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/round_border.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/spinner_background.xml" value="0.536" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/activity_edit.xml" value="0.264" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/activity_intro.xml" value="0.2" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/activity_login.xml" value="0.176" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/activity_settings.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/dialog_add.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/dialog_add_chores.xml" value="0.16" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/dialog_normalcharge.xml" value="0.16909722222222223" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/dialog_roomcode.xml" value="0.16909722222222223" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/fragment_autocharge.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/fragment_blank.xml" value="0.1296875" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/fragment_bottom1.xml" value="0.2" />
