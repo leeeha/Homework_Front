@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#A6A6A6</color>
-    <color name="orange">@android:color/holo_orange_dark</color>
+    <color name="orange">#FF9E3C</color>
+>>>>>>> e2fd40f41cc49c00199709427ad0467106c783d8
 </resources>

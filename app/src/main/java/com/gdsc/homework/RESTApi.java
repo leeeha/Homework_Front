@@ -7,6 +7,8 @@ import retrofit2.http.Body;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import com.gdsc.homework.model.BasicResponse;
+import com.gdsc.homework.model.Request_addDeposit;
+import com.gdsc.homework.model.Request_getDeposit;
 import com.gdsc.homework.model.Request_participateRoom;
 import com.gdsc.homework.model.Response_checkRoom;
 import com.gdsc.homework.model.Response_createRoom;
@@ -16,6 +18,7 @@ import com.google.gson.GsonBuilder;
 public interface RESTApi {
     @Headers(value = "Content-Type: application/json")
 
+    // auth
     @POST("api/auth/google/login")
     Call<BasicResponse> googleLogin(
             @Body String idToken);
@@ -24,6 +27,7 @@ public interface RESTApi {
     Call<BasicResponse> checkLoggedIn(
             @Body String token);
 
+    // room
     @POST("api/room/create")
     Call<Response_createRoom> createRoom(
             @Body String token);
@@ -35,6 +39,15 @@ public interface RESTApi {
     @POST("api/room/check")
     Call<Response_checkRoom> checkRoom(
             @Body String token);
+
+    // bank
+    @POST("api/bank/deposit")
+    Call<BasicResponse> getDeposit(
+            @Body Request_getDeposit request_getDeposit);
+
+    @POST("api/bank/deposit/add")
+    Call<BasicResponse> addDeposit(
+            @Body Request_addDeposit request_addDeposit);
 
 
     Gson gson = new GsonBuilder().setLenient().create();
