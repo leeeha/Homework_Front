@@ -1,11 +1,11 @@
 package com.gdsc.homework.model;
 
 public class Request_participateRoom {
-    String token;
-    String roomCode;
 
-    public Request_participateRoom() {
-    }
+    private String token;
+    private String roomCode;
+
+    public Request_participateRoom() { }
 
     public Request_participateRoom(String token, String roomCode) {
         this.token = token;
