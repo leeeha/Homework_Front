@@ -18,9 +18,7 @@ public class BottomFragment2_monthly extends Fragment {
 
     private PieChart chart;
 
-    // TODO: Rename parameter arguments, c
     public BottomFragment2_monthly() {
-        // Required empty public constructor
     }
 
     public static BottomFragment2_monthly newInstance() {

@@ -8,7 +8,6 @@
         <item>세탁</item>
     </string-array>
 
-    <!-- todo: 서버에서 가족으로 등록된 회원들의 이름 가져오기 -->
     <string-array name="people">
         <item>담당자</item>
         <item>하은</item>
