@@ -5,13 +5,15 @@
       <map>
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/cursor_color.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/ic_btn_add.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/ic_btn_check.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/ic_btn_close.xml" value="0.2365296803652968" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/ic_btn_edit.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/ic_community.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/ic_settings.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/menu_item_color.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/round_border.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/drawable/spinner_background.xml" value="0.536" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/activity_edit.xml" value="0.24181818181818182" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/activity_edit.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/activity_settings.xml" value="0.264" />
@@ -38,12 +40,15 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/list_item_family.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/list_item_mine.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/list_item_todo.xml" value="0.6" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/multi_spinner_item.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/new_category_item.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/option_item_check.xml" value="0.22546296296296298" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/option_item_chores.xml" value="0.22546296296296298" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/option_item_person.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/option_item_text.xml" value="0.22546296296296298" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/single_option_item.xml" value="0.22546296296296298" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/spinner_multi_item.xml" value="0.22546296296296298" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/layout/spinner_single_item.xml" value="0.22546296296296298" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/menu/app_bar_menu.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Homework/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/NavigationBar/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />

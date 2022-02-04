@@ -16,8 +16,6 @@ import androidx.core.content.ContextCompat;
 import com.gdsc.homework.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import org.w3c.dom.Text;
-
 import java.util.Objects;
 
 public class NewTask extends BottomSheetDialogFragment {
@@ -40,7 +38,7 @@ public class NewTask extends BottomSheetDialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.new_category_item, container, false);
+        View view = inflater.inflate(R.layout.new_item, container, false);
         Objects.requireNonNull(getDialog()).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         return view;
     }

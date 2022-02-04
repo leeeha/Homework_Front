@@ -54,7 +54,6 @@ public class TopFrag2 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         showFamilyCalendar(R.id.wholeCalendarView);
         showFamilyList();
-        // 플로팅 버튼
     }
 
     // list_item_family

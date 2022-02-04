@@ -10,15 +10,26 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gdsc.homework.R;
+import com.gdsc.homework.fragment.TopFrag1;
+import com.gdsc.homework.model.FamilyChores;
 import com.gdsc.homework.model.MyChores;
 
 import java.util.ArrayList;
 
 public class MyAdpater extends RecyclerView.Adapter<MyAdpater.ViewHolder> {
     private final ArrayList<MyChores> localDataSet;
+    private Context context;
 
     public MyAdpater(ArrayList<MyChores> dataSet) {
         this.localDataSet = dataSet;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -52,5 +63,16 @@ public class MyAdpater extends RecyclerView.Adapter<MyAdpater.ViewHolder> {
     @Override
     public int getItemCount() {
         return localDataSet.size();
+    }
+
+    // 작업 수정하기
+    public void editItem(int position) {
+
+    }
+
+    // 작업 완료하면, 아이템이 아예 사라지면서 다이얼로그 띄우기
+    public void completeItem(int position) {
+        localDataSet.remove(position);
+        notifyItemRemoved(position);
     }
 }

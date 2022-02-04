@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.gdsc.homework.R;
+import com.gdsc.homework.RecyclerItemTouchHelper;
 import com.gdsc.homework.adapter.MyAdpater;
 import com.gdsc.homework.adapter.TodoAdapter;
 import com.gdsc.homework.model.MyChores;
@@ -88,8 +90,12 @@ public class TopFrag1 extends Fragment {
         // 레이아웃 매니저, 어댑터 설정
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         myRecyclerView.setLayoutManager(layoutManager);
+
         MyAdpater adapter = new MyAdpater(dataSet);
         myRecyclerView.setAdapter(adapter);
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(adapter));
+        itemTouchHelper.attachToRecyclerView(myRecyclerView);
 
         // 구분선 추가
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(myRecyclerView.getContext(),
