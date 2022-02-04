@@ -86,7 +86,6 @@ public class TopFrag2 extends Fragment {
         familyRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 
-    // 공통: 주간 캘린더
     public void showFamilyCalendar(int viewId) {
         /* starts before 1 month from now */
         Calendar startDate = Calendar.getInstance();

@@ -97,7 +97,6 @@ public class TopFrag1 extends Fragment {
         myRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 
-    // 공통: 주간 캘린더
     public void showMyCalendar(int viewId) {
         /* starts before 1 month from now */
         Calendar startDate = Calendar.getInstance();

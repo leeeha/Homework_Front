@@ -45,7 +45,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:tint="@android:color/holo_orange_dark" />
+                    app:tint="@color/black" />
 
                 <ImageButton
                     android:id="@+id/btn_settings"
@@ -58,7 +58,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/btn_add"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:tint="@android:color/holo_orange_dark" />
+                    app:tint="@color/black" />
 
             </LinearLayout>
 
