@@ -59,16 +59,14 @@ public class TopFrag2 extends Fragment {
     // list_item_family
     private void showFamilyList() {
         ArrayList<FamilyChores> dataSet = new ArrayList<FamilyChores>() {{
-            add(new FamilyChores(R.drawable.ic_launcher_background,"세탁",
-                    "세제 많이 넣지마~", ""));
-            add(new FamilyChores(R.drawable.ic_launcher_background, "분리수거",
-                    "플라스틱 생수병에 라벨 제거 꼭 하기!", ""));
-            add(new FamilyChores(R.drawable.ic_launcher_background,"세탁",
-                    "세제 많이 넣지마~", ""));
-            add(new FamilyChores(R.drawable.ic_launcher_background, "분리수거",
-                    "플라스틱 생수병에 라벨 제거 꼭 하기!", ""));
-            add(new FamilyChores(R.drawable.ic_launcher_background,"세탁",
-                    "세제 많이 넣지마~", ""));
+            add(new FamilyChores(R.drawable.ic_profile_black,"진아   세탁",
+                    "세제 많이 넣지마~"));
+            add(new FamilyChores(R.drawable.ic_profile_black, "혁준   분리수거",
+                    "플라스틱 생수병에 라벨 제거 꼭 하기!"));
+            add(new FamilyChores(R.drawable.ic_profile_black,"하은   설거지",
+                    "음식물 쓰레기도 처리하는 거 잊지마!"));
+            add(new FamilyChores(R.drawable.ic_profile_black, "정후   화장실 청소",
+                    "이번 주 화장실 청소 담당 화이팅~!"));
         }};
 
         RecyclerView familyRecyclerView = rootView.findViewById(R.id.familyList);

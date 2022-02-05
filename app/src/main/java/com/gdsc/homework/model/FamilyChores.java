@@ -4,13 +4,11 @@ public class FamilyChores {
     int imageResource;
     String role;
     String memo;
-    String time;
 
-    public FamilyChores(int imageResource, String role, String memo, String time) {
+    public FamilyChores(int imageResource, String role, String memo) {
         this.imageResource = imageResource;
         this.role = role;
         this.memo = memo;
-        this.time = time;
     }
 
     public int getImageResource() {
@@ -23,9 +21,5 @@ public class FamilyChores {
 
     public String getMemo() {
         return memo;
-    }
-
-    public String getTime() {
-        return time;
     }
 }
