@@ -11,6 +11,7 @@ import com.gdsc.homework.model.Request_addDeposit;
 import com.gdsc.homework.model.Request_createHousework;
 import com.gdsc.homework.model.Request_getDeposit;
 import com.gdsc.homework.model.Request_participateRoom;
+import com.gdsc.homework.model.Request_rouletteResult;
 import com.gdsc.homework.model.Response_checkRoom;
 import com.gdsc.homework.model.Response_createRoom;
 import com.gdsc.homework.model.Response_getMyHousework;
@@ -59,6 +60,11 @@ public interface RESTApi {
     @POST("api/housework/create")
     Call<BasicResponse> createHousework(
             @Body Request_createHousework request_createHousework);
+
+    // roulette
+    @POST("api/roulette/result")
+    Call<BasicResponse> rouletteResult(
+            @Body Request_rouletteResult request_rouletteResult);
 
 
     Gson gson = new GsonBuilder().setLenient().create();

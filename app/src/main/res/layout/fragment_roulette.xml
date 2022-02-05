@@ -54,30 +54,10 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnDrawRoulette5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="number of case : 5" />
-
-                <Button
-                    android:id="@+id/btnDrawRoulette6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="number of case : 6" />
-            </LinearLayout>
-
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="70dp"
                 android:layout_gravity="center"
                 android:background="@drawable/icon_top" />
 
@@ -92,13 +72,16 @@
             </RelativeLayout>
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:src="@drawable/icon_bottom"
                 android:layout_gravity="center"/>
 
             <Button
                 android:id="@+id/btnRotate"
+                android:layout_marginTop="100dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:text="spin"

@@ -18,8 +18,7 @@ public class BottomFragment2_monthly extends Fragment {
 
     private PieChart chart;
 
-    public BottomFragment2_monthly() {
-    }
+    public BottomFragment2_monthly() { }
 
     public static BottomFragment2_monthly newInstance() {
         BottomFragment2_monthly fragment = new BottomFragment2_monthly();
@@ -48,8 +47,10 @@ public class BottomFragment2_monthly extends Fragment {
 
         chart.clearChart();
 
-        chart.addPieSlice(new PieModel("TYPE 1", 60, Color.parseColor("#CDA67F")));
-        chart.addPieSlice(new PieModel("TYPE 2", 40, Color.parseColor("#00BFFF")));
+        chart.addPieSlice(new PieModel("정후", 40, Color.parseColor("#D64B25")));
+        chart.addPieSlice(new PieModel("혁준", 28, Color.parseColor("#F77D47")));
+        chart.addPieSlice(new PieModel("진아", 22, Color.parseColor("#FF9E3C")));
+        chart.addPieSlice(new PieModel("하은", 10, Color.parseColor("#FFB612")));
 
         chart.startAnimation();
 
