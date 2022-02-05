@@ -64,15 +64,4 @@ public class MyAdpater extends RecyclerView.Adapter<MyAdpater.ViewHolder> {
     public int getItemCount() {
         return localDataSet.size();
     }
-
-    // 작업 수정하기
-    public void editItem(int position) {
-
-    }
-
-    // 작업 완료하면, 아이템이 아예 사라지면서 다이얼로그 띄우기
-    public void completeItem(int position) {
-        localDataSet.remove(position);
-        notifyItemRemoved(position);
-    }
 }

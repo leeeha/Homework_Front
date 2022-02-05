@@ -1,6 +1,10 @@
 package com.gdsc.homework.fragment;
 
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,26 +19,25 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.gdsc.homework.AutoChargeFragment;
+import com.bumptech.glide.load.resource.drawable.DrawableResource;
 import com.gdsc.homework.MainActivity;
 import com.gdsc.homework.R;
 import com.gdsc.homework.RESTApi;
-import com.gdsc.homework.RecyclerItemTouchHelper;
 import com.gdsc.homework.adapter.MyAdpater;
 import com.gdsc.homework.adapter.TodoAdapter;
-import com.gdsc.homework.model.BasicResponse;
 import com.gdsc.homework.model.MyChores;
 import com.gdsc.homework.model.Response_getMyHousework;
 import com.gdsc.homework.model.ToDo;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import devs.mulham.horizontalcalendar.HorizontalCalendar;
-import devs.mulham.horizontalcalendar.HorizontalCalendarView;
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -99,9 +102,38 @@ public class TopFrag1 extends Fragment implements View.OnClickListener {
     // list_item_todo
     private void showTodoList() {
         ArrayList<ToDo> dataSet = new ArrayList<ToDo>() {{
-            add(new ToDo("설거지", R.drawable.ic_launcher_background));
-            add(new ToDo("세탁", R.drawable.ic_launcher_background));
-            add(new ToDo("요리", R.drawable.ic_launcher_background));
+//
+//            AssetManager am = getResources().getAssets() ;
+//            InputStream is = null;
+//
+//            try {
+//                // 애셋 폴더에 저장된 field.png 열기.
+//                is = am.open("icon_dish.png") ;
+//
+//                // 입력스트림 is를 통해 field.png 을 Bitmap 객체로 변환.
+//                Bitmap bm = BitmapFactory.decodeStream(is) ;
+//
+//                // 만들어진 Bitmap 객체를 이미지뷰에 표시.
+//                ImageView imageView = (ImageView) findViewById(R.id.image1) ;
+//                imageView.setImageBitmap(bm) ;
+//
+//                is.close() ;
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//
+//            if (is != null) {
+//                try {
+//                    is.close() ;
+//                } catch (Exception e) {
+//                    e.printStackTrace() ;
+//                }
+//            }
+
+            // 이미지뷰의 리소스 아이디 전달
+//            add(new ToDo("설거지", ));
+//            add(new ToDo("세탁", ));
+//            add(new ToDo("요리", ));
         }};
 
         RecyclerView todoRecyclerView = rootView.findViewById(R.id.todoList);
@@ -120,7 +152,7 @@ public class TopFrag1 extends Fragment implements View.OnClickListener {
                         List<Response_getMyHousework.data> Result = response.body().getData();
                         arr = (ArrayList) Result;
 
-                        ArrayList<MyChores> dataSet = new ArrayList<MyChores>();
+                        ArrayList<MyChores> dataSet = new ArrayList<>();
                         for(Response_getMyHousework.data data : arr) {
                             MyChores entity = new MyChores();
                             if (!data.getDay().equals(current_day)) continue;
@@ -139,9 +171,6 @@ public class TopFrag1 extends Fragment implements View.OnClickListener {
                         MyAdpater adapter = new MyAdpater(dataSet);
                         myRecyclerView.setAdapter(adapter);
 
-                        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(adapter));
-                        itemTouchHelper.attachToRecyclerView(myRecyclerView);
-
                         // 구분선 추가
                         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(myRecyclerView.getContext(),
                                 layoutManager.getOrientation());
@@ -155,7 +184,6 @@ public class TopFrag1 extends Fragment implements View.OnClickListener {
 
             }
         });
-
 
 //        ArrayList<MyChores> dataSet = new ArrayList<MyChores>() {{
 //            add(new MyChores("세탁", "세제 많이 넣지마~", ""));
@@ -223,9 +251,6 @@ public class TopFrag1 extends Fragment implements View.OnClickListener {
 
                 MyAdpater adapter = new MyAdpater(dataSet);
                 myRecyclerView.setAdapter(adapter);
-
-                ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(adapter));
-                itemTouchHelper.attachToRecyclerView(myRecyclerView);
 
                 // 구분선 추가
                 DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(myRecyclerView.getContext(),
