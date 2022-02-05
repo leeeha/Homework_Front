@@ -10,4 +10,12 @@
     <color name="gray">#818181</color>
     <color name="orange">#FF9E3C</color>
     <color name="orange_light">#FDE8D5</color>
+
+    <color name="main_black">#1D1D1D</color>
+    <color name="main_red">#D64B25</color>
+    <color name="main_redredyellow">#F77D47</color>
+    <color name="main_redyellowyellow">#FF9E3C</color>
+    <color name="main_yellow">#FFB612</color>
+    <color name="main_lightyellow">#FDE8D5</color>
+
 </resources>

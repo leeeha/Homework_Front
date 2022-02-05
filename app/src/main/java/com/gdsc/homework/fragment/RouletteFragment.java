@@ -3,6 +3,8 @@ package com.gdsc.homework.fragment;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,6 +13,7 @@ import android.graphics.RectF;
 import android.media.Image;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -22,25 +25,41 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.gdsc.homework.IntroActivity;
 import com.gdsc.homework.MainActivity;
 import com.gdsc.homework.R;
+import com.gdsc.homework.RESTApi;
+import com.gdsc.homework.model.BasicResponse;
+import com.gdsc.homework.model.Request_addDeposit;
+import com.gdsc.homework.model.Request_participateRoom;
+import com.gdsc.homework.model.Request_rouletteResult;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class RouletteFragment extends Fragment {
 
     private CircleManager circleManager;
     private RelativeLayout layoutRoulette;
 
-    private Button btnDrawRoulette5;
-    private Button btnDrawRoulette6;
     private Button btnRotate;
     private TextView tvResult;
     private ImageView iv_goback;
+
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
+    private RESTApi mRESTApi;
+    private String token;
 
     private ArrayList<String> STRINGS;
     private float initAngle = 0.0f;
@@ -69,34 +88,29 @@ public class RouletteFragment extends Fragment {
         tvResult = view.findViewById(R.id.tvResult);
         iv_goback = view.findViewById(R.id.iv_goback);
         btnRotate = view.findViewById(R.id.btnRotate);
-        btnDrawRoulette5 = view.findViewById(R.id.btnDrawRoulette5);
-        btnDrawRoulette6 = view.findViewById(R.id.btnDrawRoulette6);
         layoutRoulette = view.findViewById(R.id.layoutRoulette);
 
-        btnDrawRoulette5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                num_roulette = 5;
-                STRINGS = setRandom(1000, num_roulette);
-                circleManager = new CircleManager(getContext(), num_roulette);
-                layoutRoulette.addView(circleManager);
-            }
-        });
 
-        btnDrawRoulette6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                num_roulette = 6;
-                STRINGS = setRandom(1000, num_roulette);
-                circleManager = new CircleManager(getContext(), num_roulette);
-                layoutRoulette.addView(circleManager);
-            }
-        });
+        preferences = view.getContext().getSharedPreferences("data", MODE_PRIVATE);
+        editor= preferences.edit();
+        mRESTApi = RESTApi.retrofit.create(RESTApi.class);
+        token = preferences.getString("token","");
+
+        num_roulette = 4;
+        STRINGS = new ArrayList<>();
+        STRINGS.add("정후");
+        STRINGS.add("혁준");
+        STRINGS.add("하은");
+        STRINGS.add("진아");
+        //STRINGS = setRandom(1000, num_roulette);
+        circleManager = new CircleManager(getContext(), num_roulette);
+        layoutRoulette.addView(circleManager);
 
         btnRotate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rotateLayout(layoutRoulette, num_roulette);
+                // 돈이 빠져나가는데 그래도 하실건지 물음 dialog
+                dialog_base(view);
             }
         });
 
@@ -156,46 +170,20 @@ public class RouletteFragment extends Fragment {
         String text = "";
         angle = angle % 360;
 
-        Log.d("roulette", "getResult : " + angle);
-
-        if (num_roulette == 5) {
-            if (angle > 342 || angle <= 54) { // 11   2
-                text = STRINGS.get(3);
-                buildAlert(text);
-            } else if (angle > 54 && angle <= 126) { // 333   3
-                text = STRINGS.get(2);
-                buildAlert(text);
-            } else if (angle > 126 && angle <= 198) { // 222   4
-                text = STRINGS.get(1);
-                buildAlert(text);
-            } else if (angle > 198 && angle <= 270) { // 111    0
-                text = STRINGS.get(0);
-                buildAlert(text);
-            } else if (angle > 270 && angle <= 342) { // 22     1
-                text = STRINGS.get(4);
-                buildAlert(text);
-            }
-        } else if (num_roulette == 6) {
-            if (angle > 330 || angle <= 30) { // 22
-                text = STRINGS.get(4);
-                buildAlert(text);
-            } else if (angle > 30 && angle <= 90) { // 11
-                text = STRINGS.get(3);
-                buildAlert(text);
-            } else if (angle > 90 && angle <= 150) { // 333
-                text = STRINGS.get(2);
-                buildAlert(text);
-            } else if (angle > 150 && angle <= 210) { // 222
-                text = STRINGS.get(1);
-                buildAlert(text);
-            } else if (angle > 210 && angle <= 270) { // 111
-                text = STRINGS.get(0);
-                buildAlert(text);
-            } else if (angle > 270 && angle <= 330) { // 3
-                text = STRINGS.get(5);
-                buildAlert(text);
-            }
+        if (angle > 350 || angle <= 80) {
+            text = STRINGS.get(2);
+            buildAlert(text);
+        } else if (angle > 80 && angle <= 170) {
+            text = STRINGS.get(1);
+            buildAlert(text);
+        } else if (angle > 170 && angle <= 260) {
+            text = STRINGS.get(0);
+            buildAlert(text);
+        } else if (angle > 260 && angle <= 350) {
+            text = STRINGS.get(3);
+            buildAlert(text);
         }
+
         tvResult.setText("Result : " + text);
     }
 
@@ -203,7 +191,7 @@ public class RouletteFragment extends Fragment {
     private void buildAlert(String text) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Congratulations")
-                .setMessage("You have earned " + text + " points!")
+                .setMessage(text+"님께 집안일을 넘겨드렸어요")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -212,11 +200,16 @@ public class RouletteFragment extends Fragment {
                 });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+        // todo : 서버 통신
+        rouletteResult();
     }
 
     public class CircleManager extends View {
         private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        private int[] COLORS = {Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, Color.MAGENTA, Color.GRAY};
+        private int[] COLORS = {ContextCompat.getColor(getContext(), R.color.main_yellow),
+                ContextCompat.getColor(getContext(), R.color.main_lightyellow),
+                ContextCompat.getColor(getContext(), R.color.main_redyellowyellow),
+                ContextCompat.getColor(getContext(), R.color.main_redredyellow)};
         private int num;
 
         public CircleManager(Context context, int num) {
@@ -266,5 +259,71 @@ public class RouletteFragment extends Fragment {
                 temp += sweepAngle;
             }
         }
+    }
+
+    public void dialog_base(View v) {
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_base, null);
+
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(v.getContext());
+        builder.setView(dialogView);
+
+        final androidx.appcompat.app.AlertDialog alertDialog = builder.create();
+        alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        alertDialog.show();
+
+        Button btn_okay_broker = dialogView.findViewById(R.id.btn_okay_broker);
+        btn_okay_broker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 서버 통신
+                addDeposit();
+                alertDialog.dismiss();
+            }
+        });
+    }
+
+    private void rouletteResult() {
+        Request_rouletteResult request_rouletteResult = new Request_rouletteResult();
+        request_rouletteResult.setToken(token);
+        request_rouletteResult.setHouseworkId(Long.parseLong("1"));
+        request_rouletteResult.setUserId(Long.parseLong("3"));
+
+        mRESTApi.rouletteResult(request_rouletteResult)
+                .enqueue(new Callback<BasicResponse>() {
+                    @Override
+                    public void onResponse(Call<BasicResponse> call, Response<BasicResponse> response) {
+
+                        if (response.body().getStatus() == 200) {
+                            ((MainActivity) requireActivity()).replaceBottomTab(BottomFrag1.newInstance());
+                            ((MainActivity) requireActivity()).setVisibilityBottomNavigation(true);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<BasicResponse> call, Throwable throwable) {
+                        Log.d("LoginActivity", throwable.getMessage());
+                    }
+                });
+    }
+
+
+    private void addDeposit() {
+        Request_addDeposit request_addDeposit = new Request_addDeposit();
+        request_addDeposit.setToken(token);
+        request_addDeposit.setAmount(0);
+        mRESTApi.addDeposit(request_addDeposit).enqueue(new Callback<BasicResponse>() {
+            @Override
+            public void onResponse(Call<BasicResponse> call, Response<BasicResponse> response) {
+
+                if(response.isSuccessful()) {
+                    if (response.body().getStatus() == 200) {
+                        rotateLayout(layoutRoulette, num_roulette);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BasicResponse> call, Throwable throwable) { }
+        });
     }
 }

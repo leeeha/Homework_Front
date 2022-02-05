@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +42,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     private RESTApi mRESTApi;
     private String token;
 
+    private ImageView iv_goback;
+
     private Request_createHousework request_createHousework;
 
     @Override
@@ -63,6 +66,9 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         mRESTApi = RESTApi.retrofit.create(RESTApi.class);
         token = preferences.getString("token","");
         request_createHousework = new Request_createHousework();
+
+        iv_goback = findViewById(R.id.iv_goback);
+        iv_goback.setOnClickListener(this);
 
         btn_addhomework = findViewById(R.id.btn_addhomework);
         btn_addhomework.setOnClickListener(this);
@@ -180,7 +186,9 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.btn_addhomework:
                 addDeposit();
-
+                break;
+            case R.id.iv_goback:
+                onBackPressed();
                 break;
         }
     }
