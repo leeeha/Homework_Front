@@ -102,38 +102,13 @@ public class TopFrag1 extends Fragment implements View.OnClickListener {
     // list_item_todo
     private void showTodoList() {
         ArrayList<ToDo> dataSet = new ArrayList<ToDo>() {{
-//
-//            AssetManager am = getResources().getAssets() ;
-//            InputStream is = null;
-//
-//            try {
-//                // 애셋 폴더에 저장된 field.png 열기.
-//                is = am.open("icon_dish.png") ;
-//
-//                // 입력스트림 is를 통해 field.png 을 Bitmap 객체로 변환.
-//                Bitmap bm = BitmapFactory.decodeStream(is) ;
-//
-//                // 만들어진 Bitmap 객체를 이미지뷰에 표시.
-//                ImageView imageView = (ImageView) findViewById(R.id.image1) ;
-//                imageView.setImageBitmap(bm) ;
-//
-//                is.close() ;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//
-//            if (is != null) {
-//                try {
-//                    is.close() ;
-//                } catch (Exception e) {
-//                    e.printStackTrace() ;
-//                }
-//            }
 
             // 이미지뷰의 리소스 아이디 전달
-//            add(new ToDo("설거지", ));
-//            add(new ToDo("세탁", ));
-//            add(new ToDo("요리", ));
+            add(new ToDo("설거지", R.drawable.icon_dish));
+            add(new ToDo("세탁", R.drawable.icon_clothes));
+            add(new ToDo("분리수거", R.drawable.icon_trash));
+            add(new ToDo("화장실 청소", R.drawable.icon_bathroom));
+            add(new ToDo("청소", R.drawable.icon_vacuum));
         }};
 
         RecyclerView todoRecyclerView = rootView.findViewById(R.id.todoList);

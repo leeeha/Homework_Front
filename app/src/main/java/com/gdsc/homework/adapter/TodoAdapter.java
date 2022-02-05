@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gdsc.homework.R;
@@ -25,12 +26,12 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvRoles;
-        ImageView ivIcon;
+        CardView card_temp;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvRoles = itemView.findViewById(R.id.roles);
-            ivIcon = itemView.findViewById(R.id.icon);
+            card_temp = itemView.findViewById(R.id.card_temp);
         }
     }
 
@@ -47,7 +48,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ToDo item = localDataSet.get(position);
         holder.tvRoles.setText(item.getRoles());
-        holder.ivIcon.setImageResource(item.getImageResource());
+        holder.card_temp.setBackgroundResource(item.getImageResource());
     }
 
     @Override
