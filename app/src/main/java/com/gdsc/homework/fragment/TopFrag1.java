@@ -58,9 +58,7 @@ public class TopFrag1 extends Fragment implements View.OnClickListener {
     private String current_day;
     private ArrayList<Response_getMyHousework.data> arr;
 
-    public TopFrag1() {
-        // Required empty public constructor
-    }
+    public TopFrag1() { }
 
     public static TopFrag1 newInstance() {
         TopFrag1 fragment = new TopFrag1();

@@ -57,7 +57,6 @@ public class MyAdpater extends RecyclerView.Adapter<MyAdpater.ViewHolder> {
         MyChores item = localDataSet.get(position);
         holder.tvRole.setText(item.getRole());
         holder.tvMemo.setText(item.getMemo());
-        holder.tvTime.setText(item.getTime());
     }
 
     @Override

@@ -15,12 +15,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.gdsc.homework.EditActivity;
+import com.gdsc.homework.MainActivity;
 import com.gdsc.homework.R;
 import com.gdsc.homework.SettingsActivity;
 import com.google.android.material.tabs.TabLayout;
 
 // 1. 가사 분담
 public class BottomFrag1 extends Fragment {
+
+    private ImageButton btn_settings;
 
     public BottomFrag1() { }
 
@@ -52,8 +55,8 @@ public class BottomFrag1 extends Fragment {
 
         ImageButton btnSettings = rootView.findViewById(R.id.btn_settings);
         btnSettings.setOnClickListener(view2 -> {
-            Intent intent = new Intent(getContext(), SettingsActivity.class);
-            startActivity(intent);
+            Intent intent1 = new Intent(getContext(), SettingsActivity.class);
+            startActivity(intent1);
         });
 
     }
@@ -88,6 +91,16 @@ public class BottomFrag1 extends Fragment {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.top_tab_container, fragment).commit();
     }
+//
+//    @Override
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+//            case R.id.btn_settings:
+//                Intent intentorder = new Intent(getActivity(), SettingsActivity.class);
+//                startActivity(intentorder);
+//                break;
+//        }
+//    }
 
     // 공통: 플로팅 버튼으로 가사분담 다이얼로그 띄우기
 
