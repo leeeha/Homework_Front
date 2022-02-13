@@ -1,7 +1,6 @@
 package com.gdsc.homework.fragment;
 
 import android.animation.Animator;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -18,15 +17,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.gdsc.homework.AutoChargeFragment;
 import com.gdsc.homework.MainActivity;
-import com.gdsc.homework.PayFragment;
 import com.gdsc.homework.R;
 import com.gdsc.homework.RESTApi;
 import com.gdsc.homework.model.BasicResponse;
 import com.gdsc.homework.model.Request_addDeposit;
 import com.gdsc.homework.model.Request_getDeposit;
-import com.gdsc.homework.model.Response_checkRoom;
 
 import java.text.DecimalFormat;
 

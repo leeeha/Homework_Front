@@ -1,4 +1,4 @@
-package com.gdsc.homework;
+package com.gdsc.homework.fragment;
 
 import android.os.Bundle;
 
@@ -9,7 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.gdsc.homework.fragment.BottomFrag4;
+import com.gdsc.homework.MainActivity;
+import com.gdsc.homework.R;
 
 public class AutoChargeFragment extends Fragment implements View.OnClickListener {
 

@@ -1,4 +1,4 @@
-package com.gdsc.homework;
+package com.gdsc.homework.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.gdsc.homework.fragment.BottomFrag4;
+import com.gdsc.homework.KakaoPayApi;
+import com.gdsc.homework.MainActivity;
+import com.gdsc.homework.R;
 import com.gdsc.homework.model.Approve;
 import com.gdsc.homework.model.Ready;
 
