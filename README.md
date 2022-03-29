@@ -17,20 +17,24 @@
 
 ## 👫 주제
 
+https://gdsckoreahackathon2022.github.io/#/
+
+https://developers.google.com/community/gdsc-solution-challenge
+
+이번 해커톤 주제인 Quality Education, Gender Equality, Climate Action 중에서 저희 팀이 선정한 주제는 바로 Gender Equality 입니다.
+
 <img width="310" alt="스크린샷 2022-02-05 오전 6 54 47" src="https://user-images.githubusercontent.com/74812188/152622609-7aaced49-6ad2-4683-86d9-5305c331c5c8.png">
 
 
 ## ✏️ 기획 의도
 
-‘성차별' 문제는 수년간 사회적으로 이슈가 되고 있습니다. 사회적으로 논란이 되는 성차별은 가족 내에서도 쉽게 찾아볼 수 있습니다. 
+'성차별' 문제는 수년간 사회적으로 이슈가 되고 있습니다. 
 
-한국보건사회연구원의 통계에 따르면 가사활동 전반에 걸쳐 약 70% 수준의 부인 집중 현상이 관찰되고 있다고 합니다.
-
-<img width="525" alt="스크린샷 2022-02-05 오전 8 43 48 (1)" src="https://user-images.githubusercontent.com/74812188/152622606-cf9789b8-b392-45c4-bb28-dd83e41bc53b.png">
+사회적으로 논란이 되는 성차별은 가족 내에서도 쉽게 찾아볼 수 있습니다. 한국보건사회연구원의 통계에 따르면 가사활동 전반에 걸쳐 약 70% 수준의 부인 집중 현상이 관찰되고 있다고 합니다. 
 
 이는 우리나라의 가부장주의 전통으로 인한 성 역할에 대한 고정관념 때문입니다. 
 
-성평등을 가로 막는 장애물, 성 역할! 이를 해결하기 위한 서비스 **홈워크** 입니다.
+성평등을 가로 막는 장애물, 성 역할! 이를 해결하기 위한 서비스 **홈워크** 입니다. 
 
 ## 📱 UI/UX
 
