@@ -1,11 +1,11 @@
-# Homework_Front
-
 # 🏠 홈워크
-## 💡 한줄 요약
+
+## 💡 요약
 
 **가족들이 함께하는 집안일**
 
-## ⭐️ 팀원
+
+## ⭐️ 팀원 
 
 **이 진 아**, 🎨 Designer, 디자인학과 시각디자인프로그램 19학번
 
@@ -15,30 +15,32 @@
 
 **공 혁 준**, 💻 Backend Developer, 컴퓨터공학과 18학번
 
+
 ## 👫 주제
+
+이번 해커톤 주제인 Quality Education, Gender Equality, Climate Action 중에서 저희 팀이 선정한 주제는 바로 Gender Equality 입니다. 
+
+<img width="310" alt="스크린샷 2022-02-05 오전 6 54 47" src="https://user-images.githubusercontent.com/74812188/152622609-7aaced49-6ad2-4683-86d9-5305c331c5c8.png">
 
 https://gdsckoreahackathon2022.github.io/#/
 
 https://developers.google.com/community/gdsc-solution-challenge
 
-이번 해커톤 주제인 Quality Education, Gender Equality, Climate Action 중에서 저희 팀이 선정한 주제는 바로 Gender Equality 입니다.
-
-<img width="310" alt="스크린샷 2022-02-05 오전 6 54 47" src="https://user-images.githubusercontent.com/74812188/152622609-7aaced49-6ad2-4683-86d9-5305c331c5c8.png">
-
 
 ## ✏️ 기획 의도
 
-'성차별' 문제는 수년간 사회적으로 이슈가 되고 있습니다. 
+수년간 사회적으로 이슈가 되고 있는 성차별 문제는 가족 내에서도 쉽게 찾아볼 수 있습니다. 
 
-사회적으로 논란이 되는 성차별은 가족 내에서도 쉽게 찾아볼 수 있습니다. 한국보건사회연구원의 통계에 따르면 가사활동 전반에 걸쳐 약 70% 수준의 부인 집중 현상이 관찰되고 있다고 합니다. 
+여성가족부가 발표한 '2021년 양성평등 실태조사'에 따르면 5년 전에 비해 우리 국민의 성평등 의식 수준은 많이 높아졌지만, 실제 가정 속에선 여전히 가사와 돌봄 부담이 여성에 쏠려 있는 것으로 나타났습니다. 2030 청년층을 중심으로 '남자는 돈 벌고 여자는 아이 키운다'는 고정관념에서 벗어나려는 의식적 변화는 빠르지만, 정작 현실에서 일과 돌봄을 균형있게 분배하는 모습은 찾아보기 힘들다는 것입니다. 
 
-이는 우리나라의 가부장주의 전통으로 인한 성 역할에 대한 고정관념 때문입니다. 
+<a href="https://m.hankookilbo.com/News/Read/A2022041815440004123"><img width="700" src="https://user-images.githubusercontent.com/68090939/165303945-8b8c0691-141f-473f-849f-6c917d147dbc.png"/></a>                                         
 
-성평등을 가로 막는 장애물, 성 역할! 이를 해결하기 위한 서비스 **홈워크** 입니다. 
+저희 팀은 이러한 문제에 주목하여 **가족 내 공평한 가사분담을 도와주기 위한 서비스**로서 '홈워크'를 기획하였습니다. 
 
 ## 📱 UI/UX
 
 ![](https://user-images.githubusercontent.com/74812188/152624123-8f3d53b6-588b-4550-9f57-e11c6f7110ad.gif)
+
 
 ## 🔥 기능
 
@@ -70,17 +72,20 @@ https://developers.google.com/community/gdsc-solution-challenge
     - 가족의 에로사항을 구성원 모두의 동의를 얻어 글로 작성합니다.
 - 찬성 / 반대 투표
     - 작성한 글에 대해 다른 가족 구성원들에게 찬성 / 반대 투표를 받습니다.
+- 가족 내에서 쉽게 해결되지 않는 문제들은 전문적인 상담을 받을 수 있도록, 상담사와 연결해주는 서비스도 고려 중입니다. 
 
 ### 저금통 탭
 
-- 자동 충전
-    - 일정 기간에 저금통에 자동으로 돈을 충전합니다.
-- 일반 충전
-    - 원할 때 저금통에 돈을 충전합니다.
-- 이체
-    - 저금통에 들어있는 돈을 이체합니다.
-- 이체 내역 조회
-    - 이체 완료된 내역을 조회합니다.
+- 자동 충전 / 일반 충전
+- 이체 / 이체 내역 조회
+    
+- 벌금이나 룰렛 이용료를 통해 저금통에 모인 돈은 다양한 곳에 사용할 수 있습니다.
+    - 가족 내에서 월말 결산을 진행하여 한달 간 집안일을 가장 많이 한 사람에게 보상으로 제공
+    - 필요한 가정용품을 구매할 때 사용 
+    - 아이들에게 심부름 용돈을 주는 데 사용
+     
+- 로티 에니메이션으로 사용자가 소소한 재미를 느낄 수 있도록 만들었습니다.
+
 
 ## 💻 개발
 
@@ -100,7 +105,6 @@ https://developers.google.com/community/gdsc-solution-challenge
     - Git
 - [API document](https://documenter.getpostman.com/view/17984300/UVeDrSS3)
     
-
 ### ER Diagram
 
 <img width="770" alt="스크린샷 2022-02-05 오전 7 11 54" src="https://user-images.githubusercontent.com/74812188/152622604-2d9b65c7-10e9-48a6-924c-35b866ce4216.png">
@@ -110,6 +114,7 @@ https://developers.google.com/community/gdsc-solution-challenge
 - Google+ API
 - Firebase Authentication
 
+
 ## 🎨 디자인
 
 - Tool
@@ -117,6 +122,7 @@ https://developers.google.com/community/gdsc-solution-challenge
     - AI
     - AE
     - BODYMOVIN
+    
 
 ## 🎬 데모 영상
 <div class="demo">
