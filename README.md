@@ -35,7 +35,7 @@ https://developers.google.com/community/gdsc-solution-challenge
 
 <a href="https://m.hankookilbo.com/News/Read/A2022041815440004123"><img width="700" src="https://user-images.githubusercontent.com/68090939/165303945-8b8c0691-141f-473f-849f-6c917d147dbc.png"/></a>                                         
 
-저희 팀은 이러한 문제에 주목하여 **가족 내 공평한 가사분담을 도와주기 위한 서비스**로서 '홈워크'를 기획하였습니다. 
+저희 팀은 이러한 문제에 주목하여 **가족 내 공평한 가사분담을 도와주기 위한 서비스**로 '홈워크'를 기획하였습니다. 
 
 ## 📱 UI/UX
 
