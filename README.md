@@ -135,6 +135,6 @@ https://developers.google.com/community/gdsc-solution-challenge
 
 <div class="prize">
     <img width="500" src="https://user-images.githubusercontent.com/68090939/176800646-a1d9c60d-0e39-467f-a4eb-e86de2d8b76a.png">
-    <img width="400" src="https://user-images.githubusercontent.com/68090939/176800642-9e17684d-a9db-4d69-8641-7ba192da85af.png">
+    <img width="300" src="https://user-images.githubusercontent.com/68090939/176800642-9e17684d-a9db-4d69-8641-7ba192da85af.png">
 </div>
 
