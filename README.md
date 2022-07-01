@@ -130,3 +130,11 @@ https://developers.google.com/community/gdsc-solution-challenge
     <img width="200" src="https://user-images.githubusercontent.com/74812188/152627136-30e4f307-f72f-42a5-ac6f-336f96c5cec3.gif">
     <img width="200" src="https://user-images.githubusercontent.com/74812188/152625442-eeb22848-c5b7-47f5-8ebc-b34451a36135.gif">
 </div>
+
+## 🏆 수료증, 상장 
+
+<div class="prize">
+    <img width="500" src="https://user-images.githubusercontent.com/68090939/176800646-a1d9c60d-0e39-467f-a4eb-e86de2d8b76a.png">
+    <img width="400" src="https://user-images.githubusercontent.com/68090939/176800642-9e17684d-a9db-4d69-8641-7ba192da85af.png">
+</div>
+
