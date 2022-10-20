@@ -18,14 +18,13 @@
 
 ## 👫 주제
 
+[2022 GDSC KR Winter Hackathon 공식 홈페이지](https://gdsckoreahackathon2022.github.io/#/)
+
+[2022 Google Solution Challenge 소개](https://developers.google.com/community/gdsc-solution-challenge)
+
 이번 해커톤 주제인 Quality Education, Gender Equality, Climate Action 중에서 저희 팀이 선정한 주제는 바로 Gender Equality 입니다. 
 
 <img width="310" alt="스크린샷 2022-02-05 오전 6 54 47" src="https://user-images.githubusercontent.com/74812188/152622609-7aaced49-6ad2-4683-86d9-5305c331c5c8.png">
-
-https://gdsckoreahackathon2022.github.io/#/
-
-https://developers.google.com/community/gdsc-solution-challenge
-
 
 ## ✏️ 기획 의도
 
